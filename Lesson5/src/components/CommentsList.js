@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import Comment from '../components/Comment';
+import Comment from './Comment';
 
 export default class CommentsList extends Component {
     constructor(props) {

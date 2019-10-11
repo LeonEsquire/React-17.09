@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import Post from '../components/Post';
+import Post from './Post';
 
 export default class PostsList extends Component {
     constructor(props) {
