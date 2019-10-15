@@ -1,9 +1,13 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 import { fetchUser } from '../actions/userActions';
-import { fetchTweets } from '../actions/postsActions';
+import { fetchPosts } from '../actions/postsActions';
 
 class Layout extends React.Component {
+    fetchPosts() {
+        this.props.dispatch(fetchPosts());
+    }
 
     render() {
         const { user, posts } = this.props;
@@ -17,4 +21,17 @@ class Layout extends React.Component {
             <ul>{mappedPosts}</ul>
         </div>
     }
+
+    componentDidMount() {
+        this.props.dispatch(fetchUser())
+    }
 }
+
+function mapStateToProps(state) {
+    return {
+        user: state.user.user,
+        posts: state.tweets.tweets
+    }
+}
+
+export default connect(mapStateToProps)(Layout);
